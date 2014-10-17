@@ -1,0 +1,70 @@
+[NOTE] this set up is incomplete!!! 
+Reference:
+http://stackoverflow.com/questions/9032133/multiple-diff-tools
+also:
+http://stackoverflow.com/questions/137102/whats-the-best-visual-merge-tool-for-git
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+C:\Users\Apollo\.gitconfig
+
+    [merge]
+        tool = extMerge 
+    [mergetool "extMerge"]
+        cmd = extMerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+    [mergetool]
+        trustExitCode = false
+
+
+C:\Program Files (x86)\Git\local\bin\extMerge
+
+
+    #!/bin/sh
+    # from http://stackoverflow.com/questions/9032133/multiple-diff-tools
+
+    # Parameters from git:
+    # 1    2        3       4        5        6       7
+    # path old-file old-hex old-mode new-file new-hex new-mode
+
+    CONTINUE=1
+    while [ $CONTINUE == 1 ]
+    do
+
+        # Present Options
+        echo "1. kdiff3"
+        echo "2. P4Merge"
+        echo "3. Unix diff"
+        echo "4. Cancel"
+        echo -n "Choose diff tool[1]: "
+
+        # Read in user choice
+        read -n 1 OPTION
+
+        # move down a line
+        echo ""
+
+        # if user didn't enter a choice default to 1
+        if [[ $OPTION == "" ]] ; then
+            OPTION="1"
+        fi
+
+        # Launch diff tool based on OPTION
+        case $OPTION in
+
+            1) '/c/Program Files (x86)/KDiff3/kdiff3' $2 $5 ; CONTINUE=0 ;;
+            2) '/c/Program Files/Perforce/p4merge' $* ; CONTINUE=0 ;;
+            3) diff $2 $5 ; CONTINUE=0 ;;
+            4) exit ;;
+            *) echo "\"$OPTION\" is not valid " ;;
+        esac
+
+
+        # This sleep has two purposes
+        # 1) on an invalid choice it delays the menu just a hair
+        # 2) keeps this script alive long enough that git will not just move onto the next file
+        #    instantly if diffing multiple files.
+        sleep 1
+
+    done

@@ -1,0 +1,29 @@
+::: Starting ssh-agent
+
+	Usually you don't need to start ssh-agent becasue ssh-agent 
+	has been started for you by bash shell (if it was set up previously).
+	However, if you need to start it manually, here is how to do it:
+
+	$ ssh-add -l
+	Could not open a connection to your authentication agent.
+
+	$ ps
+		  PID    PPID    PGID     WINPID  TTY  UID    STIME COMMAND
+	I   17392       1   17392      17392  con  500 16:51:36 /bin/sh
+		18036   18560   18036      16140  con  500 16:59:36 /bin/ps
+		
+	$ eval `ssh-agent -s`
+	Agent pid 17876
+
+	$ ps
+		  PID    PPID    PGID     WINPID  TTY  UID    STIME COMMAND
+	I   17392       1   17392      17392  con  500 16:51:36 /bin/sh
+		17876       1   17876      17876    ?  500 17:00:27 /bin/ssh-agent    <<<<<< [!] 
+		19372   18560   19372      17400  con  500 17:00:40 /bin/ps
+
+	$ ssh-add -l
+	The agent has no identities.
+
+	Now you can add identities to ssh-agent
+	
+	Note: you need to do this for each instant of shell window you spawn

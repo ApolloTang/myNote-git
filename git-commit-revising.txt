@@ -1,0 +1,39 @@
+::: Revising your commit
+::::::::::::::::::::::::
+
+
+:: Revise your current commit
+
+    $ git commit –-amend
+
+    This command takes your staging area and re-commit it to the repository.  
+    The editor will fire up contains the message of your previous commit. 
+    You can edit the message the, and the new edited message will 
+    overwrite the one in your previous commit.
+
+    This is useful if you commit too early and possibly 
+    forget to add some files, or you mess up your commit message
+
+    If you have made no changes since your last commit (for instance, 
+    you run this command it immediately after your previous commit), then 
+    your snapshot will look exactly the same and all 
+    you’ll change is your commit message.
+
+    If you check the hash with "git log" before and after issue 
+    the "git commit –-amend" command You’ll see the commit object have 
+    different hash.  This command actually removing the old 
+    commit object and creating a new one.
+
+
+:: Revise a specific commit
+
+    If you want the commit message and data to 
+    another commit, use the -C flag
+
+    [need a command here to reset head to specific commit]
+        $ git commit –-amend -C HEAD
+
+        • The -C flag takes a pointer to a commit as a parameter. 
+        • HEAD in the example above refers to the latest commit that 
+          was made on the current branch. You could also use the hash 
+          of the commit you want to reference.

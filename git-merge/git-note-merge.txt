@@ -1,0 +1,15 @@
+::: MERGING
+
+    git merge {branch-name}         // merge {branch-name} into the current branch
+
+    git mergetool		            // run p4merge to resolve conflic
+    
+    git mergetool --tool=
+    
+    git merge --no-ff <branch>      // you don't want a fast forward merge bc you want to
+                                    //    registed your merge in log
+    
+    git merge --ff-only <branch>    // do a merge only if you can do fast forward, if you can't do
+                                    //     fastword then abort the merger operation
+                                    
+    git merge --abort

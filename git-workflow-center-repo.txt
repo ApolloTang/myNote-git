@@ -1,0 +1,104 @@
+Like Subversion, the Centralized Workflow uses a central repository 
+to serve as the single point-of-entry for all changes to the project. 
+
+Instead of trunk, the default development branch is called master 
+and all changes are committed into this branch.
+
+
+:: Managing Conflicts
+
+The central repository represents the official project, so its 
+commit history should be treated as sacred and immutable. If a developer’s 
+local commits diverge from the central repository, Git will refuse to 
+push his changes because this would overwrite official commits.
+
+
+
+              Origin/Master
+                   |
+[ ]-->[ ]-->[ ]-->[ ]    Master
+              \           |
+               \-->[ ]-->[ ]  // this brunch has 
+                              // diverge from the central repository
+			   
+
+Before the developer can publish his feature, he needs to fetch the 
+updated central commits and rebase his changes on top of them with:
+
+
+	$ git pull --rebase origin master
+	
+This is like saying, “I want to add my changes to what everyone else has 
+already done.” The result is a perfectly linear history:
+
+
+             Origin/Master
+                   |
+[ ]-->[ ]-->[ ]-->[ ]        Master
+                    \           |
+                     \-->[ ]-->[ ]  // this brunch has 
+                                    // diverge from the central repository
+
+This command is sort of like svn update—it pulls the entire 
+upstream commit history into your working directory.
+
+The --rebase option tells Git to move all commits in your local repo to 
+the tip of the master branch after synchronising it with the 
+changes from the central repository.
+		   
+			
+With --rebase, the pull would still work, but you would wind up 
+with a "merge commit".
+			
+
+If local changes directly conflict with upstream commits, Git 
+will pause the rebasing process and give you a chance to 
+manually resolve the conflicts.
+
+Example:
+
+John$ git clone ssh://user@host/path/to/repo.git
+Marry$ git clone ssh://user@host/path/to/repo.git
+
+John$ edit file.txt
+John$ git add file.txt
+John$ git commit -m "make some edit"
+John$ git push origin master
+
+Marry$ edit file.txt
+Marry$ git add file.txt
+Marry$ git commit -m "make some edit"
+Marry$ git push origin master
+
+error: failed to push some refs to '/path/to/repo.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+Marry$ git pull --rebase origin master
+
+CONFLICT (content): Merge conflict in file.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Merry$ git clone ssh://user@host/path/to/repo.git
+
+
+
+
+				  

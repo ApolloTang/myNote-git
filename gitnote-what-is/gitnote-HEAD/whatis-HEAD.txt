@@ -1,0 +1,3 @@
+http://stackoverflow.com/questions/2304087/what-is-git-head-exactly
+
+The special ref HEAD determines what branch you are on...

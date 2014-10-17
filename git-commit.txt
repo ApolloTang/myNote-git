@@ -1,0 +1,24 @@
+Committing
+
+Committing Your Changes
+
+    $ git commit 		// use default editor to write comment
+    $ git commit –v	// verbose: include the diff of your change in the comment
+    $ git commit –m "Bug fixed"	// inline comment
+
+
+Skipping the Staging Area, go to commit directly.
+
+    $ git commit –a –m 'bug fixed'
+
+the following  is equivalent to above:
+
+    $ git commit –am 'bug fixed'
+    $ git commit –a –-message='bug fixed'
+
+    [!] Watch out when using "–am":
+    •	This will grabs everything in working directory -- so if there is something 
+        you don't want to include in the change it will get commit as well.
+    •	files that are not tracked or files that has been deleted do not get 
+        included (so "-am" works well for file modification, but does not 
+        work well for new file or deleted file.)

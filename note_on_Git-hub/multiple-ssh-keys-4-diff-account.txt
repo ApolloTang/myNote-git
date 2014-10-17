@@ -1,0 +1,174 @@
+
+- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168
+https://gist.github.com/jexchan/2351996
+
+
+Apollo@SULTAN00 ~
+$ ls -f .ssh
+.  ..  config  id_rsa  id_rsa.pub  id_rsa.pub.buckup  known_hosts
+
+
+Apollo@SULTAN00 ~
+$ ssh-keygen -f ~/.ssh/dearbanana -C "dearbanana"
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Apollo/.ssh/dearbanana.
+Your public key has been saved in /c/Users/Apollo/.ssh/dearbanana.pub.
+The key fingerprint is:
+41:d5:1d:da:e6:ff:75:7d:f3:bb:eb:78:f0:cb:7a:80 dearbanana
+
+Apollo@SULTAN00 ~
+$ ls -f .ssh
+.  ..  config  dearbanana  dearbanana.pub  id_rsa  id_rsa.pub  id_rsa.pub.buckup  known_hosts
+
+
+Apollo@SULTAN00 ~
+$ nppn ~/.ssh/config &
+
+
+Apollo@SULTAN00 ~
+$ less ~/.ssh/config
+Host *
+  ServerAliveInterval 60
+
+#tang.apollo@gmail.com
+Host bb-tag
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/id_rsa.pub
+Host gh-tag
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa.pub
+
+#dearbanana@gmail.com
+Host gh-dbg
+  Hostname github.com
+  User git
+  IdentityFile ~/.ssh/dearbanana.pub
+  
+  
+  
+ Now, you can substitute the alias for portions of the repository URL address as illustrated in the following table:
+ 
+    git@bitbucket.org:accountname/reponame.git          >>>  git@<Host-alias>:accountname/reponame.git
+       git@github.com:ApolloTang/playing-on-github.git  >>>        git@gh-tag:ApolloTang/playing-on-github.git 
+   
+ to wit:
+ 
+	instead of: 
+	git clone git@github.org:dearbanana/phonegap-start.git
+	
+	you type:
+	git clone git@gh-dbg:dearbanana/phonegap-start.git
+	  
+	or in your project's ".git/config" file, under:
+		[remote "origin"]
+				url = git@gh-dbg:dearbanana/phonegap-start.git
+				
+		for eg, change the following:
+			
+			[remote "origin"]
+				url = https://github.com/dearbanana/pgb_hello.git
+				fetch = +refs/heads/*:refs/remotes/origin/*
+				
+			to:
+
+			[remote "origin"]
+				url = git@gh-dbg:dearbanana/pgb_hello.git
+				fetch = +refs/heads/*:refs/remotes/origin/*			
+			
+			
+   
+   
+:::::::::::::::::::::::::::   
+You can test that your local key works
+
+comment out the following in .bashrc
+    #eval `ssh-agent -s` 
+    #ssh-add ~/.ssh/dearbanana
+    #ssh-add ~/.ssh/id_rsa
+    
+    
+Spawn a new shell:
+    
+Apollo@SULTAN00 ~
+$ eval `ssh-agent -s`     // see note [r1]   
+Agent pid 14520
+
+Apollo@SULTAN00 ~
+$ ssh-add ~/.ssh/dearbanana
+Enter passphrase for /c/Users/Apollo/.ssh/id_rsa:
+Identity added: /c/Users/Apollo/.ssh/id_rsa (/c/Users/Apollo/.ssh/id_rsa)
+
+Apollo@SULTAN00 ~
+$ ssh -T git@github.com
+Hi dearbanana! You've successfully authenticated, but GitHub does not provide shell access.
+
+Apollo@SULTAN00 ~
+$ ssh -T git@bitbucket.org
+Enter passphrase for key '/c/Users/Apollo/.ssh/id_rsa':
+conq: logged in as apollotang.
+
+You can use git or hg to connect to Bitbucket. Shell access is disabled.
+
+Apollo@SULTAN00 ~
+$ ssh -T git@github.com
+Hi dearbanana! You've successfully authenticated, but GitHub does not provide shell access.
+
+Apollo@SULTAN00 ~
+$ ssh-add -l
+2048 41:d5:1d:da:e6:ff:75:7d:f3:bb:eb:78:f0:cb:7a:80 /c/Users/Apollo/.ssh/dearbanana (RSA)
+
+Apollo@SULTAN00 ~
+$ ssh-add ~/.ssh/id_rsa
+Enter passphrase for /c/Users/Apollo/.ssh/id_rsa:
+Identity added: /c/Users/Apollo/.ssh/id_rsa (/c/Users/Apollo/.ssh/id_rsa)
+
+Apollo@SULTAN00 ~
+$ ssh-add -l
+2048 41:d5:1d:da:e6:ff:75:7d:f3:bb:eb:78:f0:cb:7a:80 /c/Users/Apollo/.ssh/dearbanana (RSA)
+2048 dd:30:0e:3b:41:31:8f:87:ff:74:61:e7:ff:86:70:22 /c/Users/Apollo/.ssh/id_rsa (RSA)
+
+Apollo@SULTAN00 ~
+$ ssh -T git@github.com
+Hi ApolloTang! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+::::::::: script to automatically start ssh-agent ::::::: 
+
+Add the following to ~/.bashrc:
+
+# modify after https://gist.github.com/gabrielsomoza/4557449
+export SSH_AUTH_SOCK=/tmp/.ssh-socket
+ssh-add -l 2>&1 >/dev/null
+if [ $? = 2 ]; then
+  echo status 2, could not connect to ssh-agent, start one now
+  rm -f /tmp/.ssh-script /tmp/.ssh-agent-pid /tmp/.ssh-socket
+  echo Creating new ssh-agent...
+  ssh-agent -a $SSH_AUTH_SOCK > /tmp/.ssh-script
+  . /tmp/.ssh-script
+  echo $SSH_AGENT_PID > /tmp/.ssh-agent-pid
+  ###ssh-add;
+  ###echo ssh-agent set up successfully.
+  echo ssh-agent started
+  ###ssh-add -l
+fi
+echo to add any remote account that uses dearbanana@gmail.com type: ssh-add ~/.ssh/dearbanana
+echo to add any remote account that uses tang.apollo@gmail.com type: ssh-add ~/.ssh/id_rsa
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+note:
+
+
+[r1] http://funkaoshi.com/blog/could-not-open-a-connection-to-your-authentication-agent
+
+
+
+   
+   
+    

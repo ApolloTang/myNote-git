@@ -1,0 +1,13 @@
+------
+
+git diff 7e7e6f5..cc1dfe8 --raw | awk '{ print $6 }'  // print delta files name in 2 commits
+
+
+
+------
+
+git diff --no-ext-diff --name-only
+
+
+
+stackoverflow.com/questions/1552340/git-show-all-changed-files-between-two-commits

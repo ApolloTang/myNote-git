@@ -1,0 +1,121 @@
+To see which remote servers your repository has clone from :
+    
+    $ git remote
+    origin
+
+You will see at least "origin" -- the default short name to the server you have cloned your repository from.
+
+To see the corresponding URL of the short name for this repository:
+
+    $ git remote -v
+    origin  git://github.com/schacon/ticgit.git (fetch)
+    origin  git://github.com/schacon/ticgit.git (push)
+
+To add a new remote Git repository as a sort name
+    
+    $ git remote add [shortname] [url]
+
+    for example:
+        $ git remote add pb git://github.com/paulboone/ticgit.git
+        $ git remove -v
+        origin  git://github.com/schacon/ticgit.git (fetch)
+        origin  git://github.com/schacon/ticgit.git (push)
+        pb      git://github.com/paulboone/ticgit.git (fetch)
+        pb      git://github.com/paulboone/ticgit.git (push)
+
+    Now you can use the string "pb" on the command line in lieu of the whole URL
+
+
+::: Different between Clone, Fetch, and Pull:
+
+    clone [remote-name] : automatically adds that remote repository under the name "origin"
+
+                            [!] By default, the git "clone" command sets up your local master branch 
+                            to track the remote master branch on the server you cloned 
+                            from (assuming the remote has a master branch). 
+
+    fetch [remote-name] : pulls down all the data and all the branches 
+                          from that remote project that you *don’t have yet*.
+
+                            [!] It isimportant to note that the "fetch" command pulls the data to your 
+                            local repository — it doesn’t automatically merge it with any of 
+                            your work or modify what you’re currently working on. You have 
+                            to merge it manually into your work when you’re ready.
+
+    pull [remote-name]  : fetch and then *merge* a remote branch into the code in your current branch
+
+
+::: Uploading your local repository to a remote repository
+
+    $ git push [remote-name] [branch-name]
+
+    For example:
+        $git push origin master        
+        this will upload your master branch to the server you cloned from
+        (assuming you have write access and if nobody has pushed in the meantime)
+
+::: inspecting a Remote
+
+    $ git remote show [remote-name]
+
+    Example:
+
+        $ git remote show origin
+        * remote origin
+          URL: git://github.com/schacon/ticgit.git
+          Remote branch merged with 'git pull' while on branch master  // [1]
+            master
+          Tracked remote branches  // [2]
+            master
+            ticgit
+
+[1] This tell your if  run 'git pull' on "master" branch, git will download all the data 
+and all the branches you don't have yet, and then merge remote/master to your current branch.
+[2] This tells you, you have 'remote/master' and 'remote/ticgit' in your local repository
+
+    Another Example:
+        $ git remote show origin
+        * remote origin
+          URL: git@github.com:defunkt/github.git
+          Remote branch merged with 'git pull' while on branch issues // [1]
+            issues
+          Remote branch merged with 'git pull' while on branch master // [2]
+            master
+          New remote branches (next fetch will store in remotes/origin)  // [3]
+            caching
+          Stale tracking branches (use 'git remote prune') // [4]
+            libwalker
+            walker2
+          Tracked remote branches // [5]
+            acl
+            apiv2
+            dashboard2
+            issues
+            master
+            postgres
+          Local branch pushed with 'git push' // [6]
+            master:master
+
+[1] if you are on branch "issues" and run 'git pull', git will down load all data and
+branches you don't have yet, and then merge remote/issues branch into current branch.
+[2] if you are on branch "master" and run 'git pull', git will down load all data and
+branches you don't have yet, and then merge remote/master branch into current branch.
+[3] the branches you don't have
+[4] the branches you have and server had, but have been deleted from the server.
+[5] the branches on remote you have.
+[6] ?
+
+
+::: Renaming and removing remote's name on local
+
+	$ git remote rename {old short name} {new short name}
+
+	$ git remote rm {existing short name}
+
+
+
+
+
+
+    
+

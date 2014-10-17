@@ -1,0 +1,45 @@
+
+
+:::: Set up Notepad++ as core editor
+
+
+    Create a bash script wrapper:
+   
+    C:\Program Files (x86)\Git\local\bin\git_core_editor
+
+        #!/bin/sh
+        "C:/Program Files (x86)/Notepad++/notepad++.exe" -multiInst "$*"
+
+    modify .gitconfig file:
+        
+    C:\Users\Apollo\.gitconfig:
+
+        ....
+        [core]
+            #editor = gvim
+            editor = \"C:/Program Files (x86)/Git/local/bin/git_core_editor\"
+            excludesfile = c:/Users/apollo/.gitignore_global
+        ....
+   
+Reference: 
+    [1] http://stackoverflow.com/questions/1634161/how-do-i-use-notepad-or-other-with-msysgit
+
+    [=Fail attempt=]
+    editor = C:/program_files_x86/Git/local/bin/git_core_editor
+    # Above setting does not work, as suggested in ref[1] it was generated with :
+    # $ git config --global core.editor C:/Program Files (x86)/Git/local/bin/git_core_editor  
+    # error occurs at around "("
+    
+    [=Hack=]
+    Create a symbol link to "program_files_x86" folder:
+        link folder   > C:\program_files_x86
+        target folder > C:\Program Files (x86)
+        command       > mklink /J C:\gitbash "C:\Program Files (x86)\Git"
+    
+    editor = C:/Program Files (x86)/Git/local/bin/git_core_editor
+    # above setting works!
+    # the dir name "program_files_86" is linked to "C:/Program Files (x86)"
+
+    [=Work=]
+    editor = \"C:/Program Files (x86)/Git/local/bin/git_core_editor\"
+    # Above try to escape double quote, [!] It WORKS [!] 

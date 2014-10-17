@@ -1,0 +1,65 @@
+.git/objects/19/d61b007e3237776e7751ac22fb949992e2c87c  blob main.js
+.git/objects/54/f0df7ce338b28ea2ef5b96e7745f6f68018dc9  tree {lib} pointer > main.js
+.git/objects/c6/a0e2c60eba5577ea8b46b4c110c8fef7ff055a  tree > (index.html lib)
+.git/objects/ea/5112894cb992eaacaff7704b312a133bd37210  commit
+.git/objects/f6/0189fc2229f45f6992b9efe4b0e7145e81772d  blob index.html
+
+===================================================
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ !f
+find .git/objects/ -type f
+.git/objects/19/d61b007e3237776e7751ac22fb949992e2c87c
+.git/objects/54/f0df7ce338b28ea2ef5b96e7745f6f68018dc9
+.git/objects/c6/a0e2c60eba5577ea8b46b4c110c8fef7ff055a
+.git/objects/ea/5112894cb992eaacaff7704b312a133bd37210
+.git/objects/f6/0189fc2229f45f6992b9efe4b0e7145e81772d
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ !?tree
+git cat-file -p master^{tree}
+100644 blob f60189fc2229f45f6992b9efe4b0e7145e81772d    index.html
+040000 tree 54f0df7ce338b28ea2ef5b96e7745f6f68018dc9    lib
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -p 54f0d
+100644 blob 19d61b007e3237776e7751ac22fb949992e2c87c    main.js
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -p f60189
+version 1 index.html
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -p ea511
+tree c6a0e2c60eba5577ea8b46b4c110c8fef7ff055a
+author Apollo Tang <tang.apollo@gmail.com> 1345944220 -0400
+committer Apollo Tang <tang.apollo@gmail.com> 1345944220 -0400
+
+initial commit
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -p c6a0e2
+100644 blob f60189fc2229f45f6992b9efe4b0e7145e81772d    index.html
+040000 tree 54f0df7ce338b28ea2ef5b96e7745f6f68018dc9    lib
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -p 19d61
+// version 1 main.js
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -t 19d6
+blob
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -t 54f0d
+tree
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -t c6a0e
+tree
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$ git cat-file -t ea511
+commit
+
+apollo@EMBERS /e/270_nix/git/git-lab/tree (master)
+$

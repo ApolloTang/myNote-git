@@ -1,0 +1,46 @@
+
+
+Define the author name to be used for all commits in the current repository:
+
+	$ git config user.name <name>
+	
+Typically, you’ll want to use the --global flag to set configuration options 
+for the current user, for all defulat author name to be used for all commits.
+
+	$ git config --global user.name <name>
+
+Define the author email to be used for all commits by the current user.
+
+	$ git config --global user.email <email>
+
+Create a shortcut for a Git command.
+
+	$ git config --global alias.<alias-name> <git-command>
+
+Define the text editor used by commands like git commit for all users on the 
+current machine. The <editor> argument should be the command that 
+launches the desired editor (e.g., vi).
+
+	$ git config --system core.editor <editor>
+
+Open the global configuration file in a text editor for manual editing.
+
+	$ git config --global --edit
+
+
+	
+:: Configuration file ::
+
+Git stores configuration options in three separate files, which lets you 
+scope options to individual repositories, users, or the entire system:
+
+	<repo>/.git/config 		// Repository-specific settings.
+	~/.gitconfig 			// User-specific settings. This is where options 
+							// 	set with the --global flag are stored.
+	$(prefix)/etc/gitconfig // System-wide settings.
+	
+When options in these files conflict, local settings override user settings, 
+which override system-wide.
+
+
+[Ref-source: https://www.atlassian.com/git/tutorial/git-basics#!config ]

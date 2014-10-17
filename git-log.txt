@@ -1,0 +1,86 @@
+Viewing the Commit History
+
+    $ git log	// reverse chronological order. ie., the most recent commits show up first
+
+    $ git log –p	// print out the diff
+
+    $ git log –p -2		// limit the output to only last two entries
+
+    $ git log --stat 	// --state prints below each commit entry a list of modified files,
+                // how many files were changed, 
+                // and how many lines in those files were added and removed. 
+                // It also puts a summary of the information at the end.
+                
+    $ git log --summary
+
+    Display the log output with prebuilt format:
+
+        $ git log --pretty=oneline
+        $ git log --pretty=short
+        $ git log --pretty=full
+        $ git log --pretty=fuller
+
+    Custom output format see page 29 in  book "Pro Git"
+
+    Limiting log output:
+
+        $ git log --since=2.weeks 
+         
+        see page 31 in book "Pro Git"
+
+
+
+
+Viewing Commit History with graphic tool 
+
+    $ git log --graph	// show log with ASCII graph
+
+    $ gitk		// visualize commit log in current brunch with Tcl/Tk graphical tool
+    $ gitk --all	// visualize commit log in all brunch with Tcl/Tk graphical tool
+
+ 
+More log view command
+
+    $ git log –all
+    $ git log --graph --all –-oneline
+
+    $ git log -1 HEAD
+    
+    
+    $ git log --oneline
+    
+    $ git log --oneline -3              // show 3 commit
+    
+    $ git log --since="2012-06-20"
+    $ git log --after="2012-06-20"      // "after" is same as "since"
+    
+    $ git log --until="..."             // "until" is same as "before"
+    
+    $ git log --since="2 weeks ago" --until="3 days ago"
+    
+    $ git log --since=2.weeks --until=3.days
+    
+    $ git log --author="Apollo"
+    
+    $ git log --grep="<regular expression>"
+    
+    $ git log 231615..dfs213  --oneline
+    
+    $ git log df5445.. <file-name>
+    
+    $ git log -p df5445.. <file-name>      // patch, show change (ie. diff)
+
+    $ git log --format=oneline              // give you full SHA-1
+    
+    $ git log --format={short | medium | full | fuller | email |raw }
+    
+    $ git log --graph --oneline --decorate --all
+    
+    
+    
+    
+    
+    
+    
+    
+    

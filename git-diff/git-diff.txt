@@ -1,0 +1,33 @@
+git diff                      //         (working directory) <> (staged but haven't commit)
+
+git diff --cached (< v1.6)    //                    (staged) <> (last committed)
+git diff --staged (v1.7 <)
+
+git diff HEAD				  //          (working directory) <> (last committed)
+
+git diff be96db               //               (working dir) <> (commit be96dbeab1)
+git diff be96db <fileName>    // (<fileName> in working dir) <> (<fileName> in commit be96dbeab1)
+
+git diff master..otherBranch  //             (branch master) <> (otherBranch)
+git diff master..otherBranch^ //             (branch master) <> (otherBranch's parent)
+git diff master...otherBranch //           (branch master) <> (closest ancestor before banch occurs)
+
+git diff otherbranch..HEAD   //
+
+git diff <SHA-1>..<SHA-1>    //
+git diff <SHA-1>..<SHA-1> <fileName>  //
+
+git diff <SHA-1>..HEAD      //
+
+git diff -b <SHA-1>..HEAD   // same as --ignore-space-change
+git diff -w <SHA-1>..HEAD   // same as --ignore-all-change
+
+gif diff --color-words {filename}  // show changes word by word, side by side
+
+------
+
+git diff --no-ext-diff  // no external tool
+
+
+                                                         
+ 

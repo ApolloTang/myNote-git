@@ -1,0 +1,91 @@
+::  How to setup external diff for git
+
+from 
+http://stackoverflow.com/questions/7669963/how-can-i-get-a-side-by-side-diff-when-i-do-git-diff
+
+
+There are two different ways to specify an external diff tool:
+
+    1. setting the GIT_EXTERNAL_DIFF and the GIT_DIFF_OPTS environment variables.
+    2. configuring the external diff tool via git config
+
+When doing a git diff, Git checks both the settings of above environment variables and its .gitconfig file.
+
+By default, Git passes the following seven arguments to the diff program:
+
+path
+old-file
+old-hex
+old-mode
+new-file
+new-hex new-mode
+
+
+
+You typically only need the old-file and new-file parameters. 
+Of course most diff tools only take two file names as an argument. This means 
+that you need to write a small wrapper-script, which takes the arguments 
+which Git provides to the script, and hands them on to the 
+external git program of your choice.
+
+Let's say you put your wrapper-script under ~/scripts/my_diff.sh:
+
+    #!/bin/bash
+    # un-comment one diff tool you'd like to use
+
+    # side-by-side diff with custom options:
+    # /usr/bin/sdiff -w200 -l "$2" "$5" 
+
+    # using kdiff3 as the side-by-side diff:
+    # /usr/bin/kdiff3 "$2" "$5"
+
+    # using Meld 
+    /usr/bin/meld "$2" "$5"
+
+    # using VIM
+    # /usr/bin/vim -d "$2" "$5"
+    
+you then need to make that script executable:
+
+    chmod a+x ~/scripts/my_diff.sh
+    
+you then need to tell Git how and where to find your custom 
+diff wrapper script. You have three choices how to 
+do that: (I prefer editing the .gitconfig file)
+
+    [1] Using GIT_EXTERNAL_DIFF, GIT_DIFF_OPTS
+
+        e.g. in your .bashrc or .bash_profile file you can set:
+        
+            GIT_EXTERNAL_DIFF=$HOME/scripts/my_diff.sh
+            export GIT_EXTERNAL_DIFF
+            
+    [2] Using git config
+
+        use "git config" to define where your wrapper script can be found:
+        
+            git config --global diff.external ~/scripts/my_diff.sh
+    
+    [3] Editing your ~/.gitconfig file
+
+        you can edit your ~/.gitconfig file to add these lines:
+
+            [diff]
+                external = ~/scripts/my_diff.sh
+
+      
+See also:
+    http://progit.org/book/ch7-1.html
+    git diff --help
+    http://www.pixelbeat.org/programming/diffs/
+
+    
+Note: 
+    Similarly to installing your custom diff tool, you can also install a 
+    custom merge-tool, which could be a visual merging tool to better 
+    help visualizing the merge. (see the progit.org page) 
+    See: http://fredpalma.com/518/visual-diff-and-merge-tool/ and http://progit.org/book/ch7-1.html
+
+
+
+

@@ -1,0 +1,9 @@
+If you want to rename a file in Git, you can run something like:
+
+$ git mv {old_name} {new_name}
+
+The above is actually equivalent to:
+
+$ mv {old_name} {new_name}	// make changes
+$ git rm {old_name}			// remove from stage
+$ git add {new_name}		// stage to new file

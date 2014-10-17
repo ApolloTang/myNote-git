@@ -1,0 +1,61 @@
+[1] Create a new, empty repository on Github
+[2] Create a repository locally
+
+	$ touch README.md
+	$ git init
+	$ git add README.md
+	$ git commit -m "first commit"
+
+[3] Add remote to local
+
+	$ git remote add origin git@github.com:ApolloTang/test4.git
+
+[4] varify that remote server has been added succesfully
+
+	$ git remote -v
+	origin  git@github.com:ApolloTang/test4.git (fetch)
+	origin  git@github.com:ApolloTang/test4.git (push)
+
+[4] put local content on remote
+
+	$ git push -u origin master
+	Enter passphrase for key '/c/Users/apollo/.ssh/id_rsa':
+
+[5] create a short name for this repository locally
+
+	$ git remote add test4 git@github.com:ApolloTang/test4.git
+	$ git remote -v
+	origin  git@github.com:ApolloTang/test4.git (fetch)
+	origin  git@github.com:ApolloTang/test4.git (push)
+	test4   git@github.com:ApolloTang/test4.git (fetch)
+	test4   git@github.com:ApolloTang/test4.git (push)
+
+[6] add more content
+
+	$ touch index.html
+	$ git add .
+	$ gc
+	$ git push test2 master
+	Enter passphrase for key '/c/Users/apollo/.ssh/id_rsa':
+
+[7] inspecting a remote
+	
+	$ git remote show test4
+	Enter passphrase for key '/c/Users/apollo/.ssh/id_rsa':
+	* remote test4
+	  Fetch URL: git@github.com:ApolloTang/test4.git
+	  Push  URL: git@github.com:ApolloTang/test4.git
+	  HEAD branch: master
+	  Remote branch:
+		master tracked
+	  Local ref configured for 'git push':
+		master pushes to master (up to date)
+
+
+[8] Renaming and removing remote's name on local
+
+	$ git remote rename {old short name} {new short name}
+
+	$ git remote rm {existing short name}
+
+	

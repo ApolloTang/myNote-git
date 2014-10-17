@@ -1,0 +1,20 @@
+
+C:\Users\Apollo\.gitconfig
+
+        ......
+        
+        [merge]
+            tool = kdiff3    
+        [mergetool]
+            trustExitCode = false
+        [mergetool "kdiff3"]
+            path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+            keepBackup = false
+            trustExitCode = false   
+         ......   
+    
+    
+ Reference: 
+    http://www.blog.project13.pl/index.php/coding/1192/setup-git-on-windows-to-use-kdiff3-as-its-mergetool/   
+    http://kdiff3.sourceforge.net/doc/documentation.html#commandline
+    http://stackoverflow.com/questions/12589527/using-kdiff3-to-edit-diffs-with-git

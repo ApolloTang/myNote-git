@@ -1,0 +1,3 @@
+http://stackoverflow.com/questions/11451535/gitignore-not-working/13354744
+
+http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring

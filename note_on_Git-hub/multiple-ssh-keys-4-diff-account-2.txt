@@ -1,0 +1,66 @@
+
+
+
+
+::: Adding identity to ssh-agent
+
+	$ ssh-add -l
+	The agent has no identities.
+
+	$ ssh-add ~/.ssh/id_rsa
+	Enter passphrase for /c/Users/apollo/.ssh/id_rsa:
+	Identity added: /c/Users/apollo/.ssh/id_rsa (/c/Users/apollo/.ssh/id_rsa)
+
+	$ ssh-add -l
+	2048 d4:f2:49:c1:1e:d8:ff:fe:23:98:9f:d6:d2:12:3f:be /c/Users/apollo/.ssh/id_rsa
+
+	$ ssh -T git@bitbucket.org
+	logged in as apollotang.
+
+	You can use git or hg to connect to Bitbucket. Shell access is disabled.
+	
+	OR
+	
+	$ ssh-add ~/.ssh/dearbanana
+	Enter passphrase for /c/Users/apollo/.ssh/dearbanana:
+	Identity added: /c/Users/apollo/.ssh/dearbanana (/c/Users/apollo/.ssh/dearbanana)
+	
+::: Link a local repository to an identiy
+
+	$ less ~/.ssh/config
+	Host *
+	  ServerAliveInterval 60
+
+	#tang.apollo@gmail.com
+	Host bb-tag      <---------------- [this short name is map to] -----.
+	  HostName bitbucket.org                                            |
+	  IdentityFile ~/.ssh/id_rsa.pub    <----[key in this file, remote host bitbucket.org has a copy] 
+	Host gh-tag
+	  HostName github.com
+	  User git
+	  IdentityFile ~/.ssh/id_rsa.pub
+
+	#dearbanana@gmail.com
+	Host gh-dbg
+	  Hostname github.com
+	  User git
+	  IdentityFile ~/.ssh/dearbanana.pub
+
+so now any remote ssh-repository (such as bitbucket.org and github.com)
+that has the public key	identical to that in ~/.ssh/id_rsa.pub will map 
+short names "bb-tag" or "gh-tag".   
+ 
+Similar any remote ssh-agent that has the public key identical to 
+that in ~/.ssh/dearbanana.pub will be map to short name "gh-dbg".
+ 
+-- -- -- -- --
+
+$ ssh-add ~/.ssh/id_rsa   // as my own convention 
+                          // tang.apollo@gmail.com will use this 
+						  // identity file
+
+$ ssh -T git@bitbucket.org
+
+ssh-add ~/.ssh/dearbanana
+ssh-add ~/.ssh/id_rsa
+

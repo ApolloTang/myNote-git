@@ -1,0 +1,104 @@
+::::: clone a starting phonegap from repo ::::::::
+
+    $ git clone https://github.com/phonegap/phonegap-start.git
+
+    $ git remote add origin https://github.com/dearbanana/brinaldi-tut.git
+    fatal: remote origin already exists.  
+
+    [!][!][!] can not add remote origin because remote origin is the 
+    [!][!][!] repo where I clone from
+
+::::::: Add an new remote short name :::::::::
+
+    $ git remote add dbg https://github.com/dearbanana/brinaldi-tut.git
+    $ git remote -v
+        dbg     https://github.com/dearbanana/brinaldi-tut.git (fetch)
+        dbg     https://github.com/dearbanana/brinaldi-tut.git (push)
+        origin  https://github.com/phonegap/phonegap-start.git (fetch)
+        origin  https://github.com/phonegap/phonegap-start.git (push)
+
+    
+    
+::::: add a my own branch because branch "master" is on the repo i clone from :::::
+    
+    $ git checkout -b mybranch
+        Switched to a new branch 'mybranch'
+        Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf (mybranch)
+    
+
+::::: Make some change and commit ::::::::::
+    
+    Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf (mybranch)
+    $ touch test.txt
+
+    Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf (mybranch)
+    $ git add test.txt
+
+    Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf (mybranch)
+    $ git commit -m 'testing testing'
+    [mybranch c15840c] testing testing
+     0 files changed
+     create mode 100644 test.txt
+
+    Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf (mybranch)
+    $ gst
+    # On branch mybranch
+    # Your branch is ahead of 'dbg/mybranch' by 1 commit.
+    #
+    nothing to commit, working directory clean
+
+
+::::: Now try to push to github :::::
+
+    Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf (mybranch)
+    $ git push dbg mybranch      <-----[!][!][!]  
+                                        [!][!][!] note that I am not using "git push origin master" [!][!][!]
+    Username for 'https://github.com':
+    Password for 'https://github.com':
+
+    [!][!][!]  expect this athentication is automatic [!][!][!] 
+  
+:::::: check if identity is already added ::::::: 
+    $ ssh-add -l
+        2048 41:d5:1d:da:e6:ff:75:7d:f3:bb:eb:78:f0:cb:7a:80 /c/Users/Apollo/.ssh/dearbanana (RSA)
+
+:::::: need to add my setup to .git/config :::::::
+    
+Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf (mybranch)
+$ npp /c/dev3/phg/brinaldi-tut/wf/.git/config
+
+    $ less /c/dev3/phg/brinaldi-tut/wf/.git/config
+    [core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+        hideDotFiles = dotGitOnly
+    [remote "origin"]
+        url = https://github.com/phonegap/phonegap-start.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+    [branch "master"]
+        remote = origin
+        merge = refs/heads/master
+    [remote "dbg"]
+        url = git@gh-dbg:dearbanana/brinaldi-tut.git           <--- [!]
+        #url = https://github.com/dearbanana/brinaldi-tut.git  <--- [!]
+        fetch = +refs/heads/*:refs/remotes/dbg/*
+    [branch "mybranch"]
+        remote = dbg
+        merge = refs/heads/mybranch
+        
+:::::: puch agagin ::::::         
+    
+    Apollo@SULTAN00 /c/dev3/phg/brinaldi-tut/wf/.git (GIT_DIR!)
+        $ git push dbg mybranch
+        Counting objects: 4, done.
+        Delta compression using up to 8 threads.
+        Compressing objects: 100% (2/2), done.
+        Writing objects: 100% (3/3), 298 bytes, done.
+        Total 3 (delta 1), reused 0 (delta 0)
+        To git@gh-dbg:dearbanana/brinaldi-tut.git
+           0b38a80..c15840c  mybranch -> mybranch
+           

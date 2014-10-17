@@ -1,0 +1,66 @@
+
+$echo 'test content' | git hash-object -w --stdin
+d670460b4b4aece5915caf5c68d12f560a9fe3e4
+
+	- The above generate a hash-key for the echoed content
+
+	- The -w tells hash-object to store the object; 
+      Without this the command simply tells you what the key would be. 
+
+	- --stdin tells the command to read the content from stdin; 
+	  if you don’t specify this, hash-object expects the path to a file.
+
+$git hash-object -w test.txt
+	
+	- The above generate a hash-key for content in test.txt and store
+		this content in the database and use this hash-key as its name
+
+$ git cat-file -p d670460b4b4aece5915caf5c68d12f560a9fe3e4
+test content
+
+	- Pull the content back out of Git with the cat-file command. 
+	- -p to it instructs the cat-file command to figure out the 
+	  type of content and display it nicely for you
+
+
+$ git cat-file -p master^{tree}
+
+	- The master^{tree} syntax specifies the tree object 
+      that is pointed to by the last commit on your master branch
+
+
+$ git cat-file -p 99f1a6d12cb4b6f19c8655fca46c3ecf317074e0
+100644 blob 47c6340d6459e05787f644c2447d2595f5d3a54b      simplegit.rb
+
+	The above eg gived you content of a tree object
+	a single entry of tree entry conteins:
+
+		mode	 100644
+		type	 blob
+		SHA-1	 47c6340d6459e05787f644c2447d2595f5d3a54b
+		filename simplegit.rb
+
+
+$ git update-index --add --cacheinfo 100644 \
+  83baae61804e65cc73a7201a7252750c76066a30 test.txt
+
+	The above create a new staging area and artificially place a 
+	content in your database in this new staging area.
+	A specified filename will be associated with this content, 
+	and filemode is also set
+
+	"--add" option is required becaue the file doesn't exist in staging area
+	"--cacheinfo" option is required because the file you are adding is not in
+				your director but  is in your database (.git/objects/)
+	
+	::: git file mode :::
+	100644 normal file  = 110,100,100 rw-,r--,r--
+	100755 executable	= 111,101,101 rwx,r-x,r-x
+    100000 symbolic link
+
+$ git write-tree
+
+	write the staging area out to a tree object
+	no -w option is needed. it automatically creates a tree object 
+	from the state of the index if that tree doesn’t yet exist
+	

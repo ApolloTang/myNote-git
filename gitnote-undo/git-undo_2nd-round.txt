@@ -1,0 +1,21 @@
+Git "checkout" command alway always assume that the name you gave is a 
+name for branch. It only think the name is a name for file if the 
+branch with that name doesn't exist. So if a file in repository and branch 
+has same name, it always check out the branch. 
+
+For example, the following check out the branch call {name}. If 
+there isn't a branch called {name}, it will try to check out a file 
+with name {name} (from HEAD?) into the working directory.  
+
+    $ git checkout {name}
+    
+When checkout a file into working directory, the effect is 
+reverting the file in working directory to the version 
+committed previously     
+
+So if a file in repository and branch has same name, and you want to 
+check out the file instead of the branch, do the following: 
+
+    $ git checkout -- {name}
+
+    // check out a file with name called {name}

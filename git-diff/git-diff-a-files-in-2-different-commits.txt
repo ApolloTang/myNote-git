@@ -1,0 +1,5 @@
+
+
+git diff $start_commit..$end_commit -- path/to/file
+
+http://stackoverflow.com/questions/3338126/git-how-to-diff-the-same-file-between-two-different-commits-on-the-same-branch

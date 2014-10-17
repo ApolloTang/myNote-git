@@ -1,0 +1,31 @@
+"Tree-ish" is a term that refers to any identifier that ultimately leads to a (sub)directory tree (Git refers to directories as "trees" and "tree objects")
+
+
+
+a specific tree which can be one of the following:
+
+	-References like:
+		--HEAD
+		--Tags
+		--Branch names
+		--Branch names with remotes, like origin/somebranch
+	-Hash
+	-Short hashes
+
+On top of that, any of the above can be appended with ^, ~. References can also use the @{} notation for some additional features:
+
+	-HEAD^ or HEAD^1 will be resolved to the first parent of HEAD.
+	-HEAD^2 will resolve to the second parent
+	-HEAD^3 will resolve to the third parent and so on, which is more rare and product of merges with the octopus strategy.
+	
+	-HEAD~ or HEAD~1 will resolve to the first parent of head
+	-HEAD~2 will resolve to the first parent of the first parent of HEAD. This would be the same as HEAD^^
+	
+	-HEAD@{0} will resolve to the current HEAD
+	-HEAD@{1} will resolve to the previous head. This can only be used by references since it makes use of the reference log. In the case of HEAD every commit, merge, checkout will change the value of HEAD and thus add it to the log. git reflog HEAD will display the reference log where you can see all the movements of HEAD and properly what @{1} and so on will resolve to.
+	
+ref: http://stackoverflow.com/questions/4044368/what-does-tree-ish-mean-in-git
+
+
+
+

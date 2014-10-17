@@ -1,0 +1,33 @@
+
+
+How to rename tag
+
+    First you need to build an alias of the old tag name:
+
+        > git tag new_tag_name old_tag_name
+
+    Then you need to delete the old one locally:
+
+        > git tag -d old_tag_name
+
+    Then delete the tag on you remote location(s):
+
+
+        > git remote -v
+            # The argument (3rd) is your remote location,
+            # the one you can see with `git remote`. In this example: `origin`
+
+        > git push origin :refs/tags/old_tag_name
+
+    Finally you need to add your new tag to the remote location.
+    Until you haven't done this, the new tag(s) will not be added:
+
+        > git push origin --tags
+
+    Iterate this for every remote location.
+
+
+    ref: http://stackoverflow.com/questions/1028649/how-do-you-rename-a-git-tag
+
+
+

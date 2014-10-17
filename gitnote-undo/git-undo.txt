@@ -1,0 +1,131 @@
+::::  Undo change to a file after commit
+
+Revert file "index.html" in the working directory back to the one same as *previous commit* ( if you haven't add 
+that change to the staging area :
+
+            [working dir]     [stage]       [repository]
+             "index.html"   "index.html"    "index.html"
+              modified    previous commit    previous commit
+                  x <------------x
+                  |
+                  |
+                  v
+             "index.html"   "index.html"    "index.html"
+            previous commit   previous commit  previous commit
+                
+
+    $ git checkout -- index.html
+                   ^^-- the double dash is there to make sure the file "index.html" 
+                        is checkout from the repository, not the branch "index.html" ( who know?
+                        we might have a branch called "index.html".
+
+                      
+                      
+                      
+                      
+                      
+::::  Unstage a file: 
+                   
+    say you try to put together a commit, you have serveral file in the stage. But then
+    you relize one of the file should not belong to this commit because it is a different
+    subject.  So you need to unstage that file                      
+
+            [working dir]     [stage]       [repository]
+            "index.html"   "index.html"    "index.html"
+             modified        modified      previous commit
+                                x <-------------- x
+                                |
+                                |
+                                v
+            "index.html"   "index.html"    "index.html"
+             modified    previous commit   previous commit
+ 
+    
+    $ git reset HEAD index.html
+    
+    
+    
+    
+    
+:::: Undo (amend) a commit
+
+    You can only amend the commit at the end (tip) of a branch (watch video g07-03 for explaination)
+    amend can be done to either the content in working dir or to the commit message, or  both
+    
+    $ git vi myfile.html    // modifying myfile.html
+    $ git add myfile.html
+    $ git commit --amend -m "Your new message"   // your previous commit is updated to the new 
+                                                 //     content
+    
+
+
+ 
+:::: retrive a file from a specific commit and put it into the *stage area* and *working diretory*. 
+
+    $ git checkout add1a8a0a61 -- index.html
+                   [1]        [2]    [3]
+                   
+                   [1] commit SHA-1 identifier
+                   [2] "--" to tell git that we are not checkout a branch
+                   [3] name of the file to check out
+                   
+        After the above command "git diff" should show nothing (because "git diff" show diff btw 
+        working directory and stage area )
+
+        
+             [working dir]     [stage]       [repository]        [repository]
+             "index.html"   "index.html"    "index.html"          "index.html"
+              modefied      commit 5cc1      commit 5cc1          commit add1a8  
+                  x               x 
+                  |               |
+                  |               |
+                  |               v
+                  v               x <-----------------------------------x
+                  x <---------------------------------------------------+
+                                                                          
+
+             "index.html"   "index.html"    
+            commit add1a8   commit add1a8 
+               (modified)     (modified)
+               
+    [note confusion!!!!] 
+    In the video(lynda g07-04) it said the command:
+        "$ git checkout add1a8a0a61 -- index.html" 
+    retrive "index.html" from commit "add1a" and put it into the stage area and DOES NOT over
+    write the working directory. and he can use the command: "$ git reset HEAD index.html"
+    to undo "$ git checkout add1a8a0a61 -- index.html".
+    
+    but this is not what I see, I see that "$ git checkout add1a8a0a61 -- index.html" 
+    retrive "index.html" from commit "add1a" and put it into the BOTH *stage area* and 
+    *working dir* (file "index.html" is overwriten). And the command: 
+    "$ git reset HEAD index.html" can not undo "$ git checkout add1a8a0a61 -- index.html"
+    To undo "$ git checkout add1a8a0a61 -- index.html", I use "$ git checkout 5cc1 -- index.html"
+    
+
+
+    
+    
+:::: revert command
+
+$ git log --oneline
+    17f2cce Revert "introduce an error line in line one" <-- [note 1]
+    d4bf874 introduce an error line in line one
+    af1ed2a msg 1
+    40a451c msg 2
+
+    [note 1] this commit is created using "git revert d4bf874", its content is same as af1ed2a 
+    
+    $ gdf 17f2cce d4bf874
+        diff --git a/resources.html b/resources.html
+        index 1b8e3e8..838a149 100644
+        --- a/resources.html
+        +++ b/resources.html
+        @@ -1,3 +1,4 @@
+        +error line
+         <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+            "http://www.w3.org/TR/html4/loose.dtd">
+         <html lang="en">
+         
+    $ gdf 17f2cce af1ed2a
+        <same content>
+        

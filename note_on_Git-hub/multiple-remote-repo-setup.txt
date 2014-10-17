@@ -1,0 +1,52 @@
+The following is copy from:
+
+	http://stackoverflow.com/questions/4665337/git-pushing-as-wrong-user/6665231#6665231
+
+
+	
+	
+	
+	
+	
+- - - - - - - - - - - - - 
+this sounds very similar to my current work set up. it seems that you already have set up your separate ssh-keys so you also need to create a ~/.ssh/config file and populate it with information similar to this:
+
+Host work.github.com
+    HostName github.com
+    User WORK_GITHUB_USERNAME
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_work_rsa
+    IdentitiesOnly yes
+
+Host personal.github.com
+    HostName github.com
+    User PERSONAL_GITHUB_USERNAME 
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_personal_rsa
+    IdentitiesOnly yes
+Every property sounds pretty self explanatory but the IdentitiesOnly one. I won't try to explain what that is for, but that is in my current setup and works fine.
+
+It's also worth noting that the Host URL is just a pointer to grab the correct user settings and does not have any affect on getting the files correctly to your target HostName url.
+
+Now you just need to make sure your origin (or any remote in general) url match the correct Host url in your respective repos depending on your user name. If you already have existing personal repos, you can edit that repo's .git/config file in your text editor:
+
+[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git@personal.github.com:PERSONAL_GITHUB_USERNAME/project.git
+or do it via command line:
+
+git remote set-url origin git@personal.github.com:PERSONAL_GITHUB_USERNAME/project.git
+Likewise to your work one:
+
+[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git@work.github.com:your_work_organization/project.git
+or again, via command line:
+
+git remote set-url origin git@work.github.com:your_work_organization/project.git
+Of course, you can always set one of your Host urls in your ~/.ssh/config file as just
+
+Host github.com
+I only used work.github.com to see the config relationships easier.
+
+Once these are all set, you should be able to push to each respective remote.

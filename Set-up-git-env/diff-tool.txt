@@ -1,0 +1,47 @@
+http://yoopergeek.blogspot.ca/2007/09/diff-merge-tools.html
+
+http://stackoverflow.com/questions/170309/best-three-way-merge-tool-for-windows
+
+file:///C:/Programs1/Git/doc/git/html/git-diff.html
+
+
+http://stackoverflow.com/questions/255202/how-do-i-view-git-diff-output-with-a-visual-diff-program?lq=1
+
+
+
+How to use Winmerge with Git Extensions?
+http://stackoverflow.com/questions/2468230/how-to-use-winmerge-with-git-extensions
+
+How do I setup DiffMerge with msysgit / gitk?
+http://stackoverflow.com/questions/780425/how-do-i-setup-diffmerge-with-msysgit-gitk/783667#783667
+
+How do I view 'git diff' output with a visual diff program?
+http://stackoverflow.com/questions/255202/how-do-i-view-git-diff-output-with-a-visual-diff-program?lq=1
+
+
+
+parameter::: 
+
+winmerge menu:
+http://manual.winmerge.org/Command_line.html
+
+
+MINGW:
+http://stackoverflow.com/questions/2468230/how-to-use-winmerge-with-git-extensions
+"c:/Program Files/SourceGear/DiffMerge/DiffMerge.exe" /m /r="$MERGED" "$LOCAL" "$BASE" "$REMOTE"
+
+- - - - - - -
+.NET :
+http://yoopergeek.blogspot.ca/2007/09/diff-merge-tools.html
+Diff:
+New way: (see comments)
+C:\Program Files\SourceGear\DiffMerge\DiffMerge.exe /ro2 /t1=%bname /t2=%yname %base %mine
+Merge:
+New Way: (see comments)
+C:\Program Files\SourceGear\DiffMerge\DiffMerge.exe /r=%merged /t1=%yname /t2=%bname /t3=%tname /c=%mname %mine %base %theirs
+
+.NET     MINGW     
+%mname > $MERGED
+%mine  > $LOCAL
+%nase  > $BASE
+%theirs > $REMOTE

@@ -1,0 +1,10 @@
+
+
+
+order	location					flag
+`````````````````````````````````````````````
+1		/etc/gitconfig				--system
+2		~/.gitconfig				--global
+3		{repository}/.git/config	?
+
+

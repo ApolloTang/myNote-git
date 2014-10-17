@@ -1,0 +1,5 @@
+$ git show 45sdf  
+
+$ git show --format=oneline HEAD
+
+also see: http://stackoverflow.com/questions/424071/list-all-the-files-for-a-commit-in-git

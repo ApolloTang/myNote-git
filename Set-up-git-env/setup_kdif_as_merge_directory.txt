@@ -1,0 +1,37 @@
+::: more feature :::::  
+Your can also use kdiff3 to diff the entire director between commit. See :
+   
+    http://www.vflare.org/2009/12/comprehensive-graphical-git-diff-viewer.html
+
+    you need to download 'git-diffc' from the following link :
+
+        https://code.google.com/p/compcache/source/browse/sub-projects/scripts/git-diffc
+
+    place git-diffc in:
+
+        C:\Program Files (x86)\Git\local\bin\
+    
+    add to your .bashrc:
+
+        # set env for /local/bin/git-diffc
+        export TMPDIR=/c/Users/apollo/tmp    # location of temp folder
+        export CLEANUP=0                     # don't clean up
+        # DO NOT SET GIT_EXTERNAL_DIFF. IF YOU DO git-diffc WILL NOT WORK
+
+    git-diffc works just like git diff (take the same argument), as an example, you want
+    to compare the entire directory between commit eec9f69 and commit 084cced:
+    
+        $ git-diffc eec9f69 084cced
+        [(1.txt) : (c:/Users/apollo/tmp/C4N1Ca_1.txt) : (1.txt)]
+        [(2.txt) : (c:/Users/apollo/tmp/XUX9Pd_2.txt) : (2.txt)]
+        source: /c/Users/apollo/tmp/.git_diffc/diff.7454
+        /c/Users/apollo/tmp/.git_diffc/diff.7454/old /c/Users/apollo/tmp/.git_diffc/diff.7454/new
+        
+
+
+to read: 
+
+http://stackoverflow.com/questions/7669963/how-can-i-get-a-side-by-side-diff-when-i-do-git-diff        
+   
+    
+        

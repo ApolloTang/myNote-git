@@ -1,0 +1,11 @@
+git rm --cached         // removes the file from the *index* 
+                        // and leaves it in the working directory 
+git rm --cached         // Also, this same command is used in ignoring file already tracked                    
+                    
+git rm                  //removes the file from both 
+                        // the *index* and the *working-directory*.
+                    
+git clean -n            // test run remove untrack files, it won't actually remove anything
+git clean -f            // actually remove untrack files
+
+git rm --cached         // ignore file already tracked

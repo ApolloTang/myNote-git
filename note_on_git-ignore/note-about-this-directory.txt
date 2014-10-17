@@ -1,0 +1,19 @@
+Note on this directory
+
+Directory "deep-dir-selective-ignore-2" is the right way to manage a git directory using gitignore 
+
+never try to managed the entire complex directory all at once like that in 
+	"deep-dir-selective-ignore-1"
+	"deep-dir-selective-ignore-0"
+Add one directory path at a time when you want to negate an ignore.
+
+::: Some usefule refernce: 
+https://www.google.ca/search?q=git+ignore+negative+pattern&oq=gitignore+negat&aqs=chrome.3.69i57j0l5.10845j0j7&sourceid=chrome&espv=210&es_sm=93&ie=UTF-8
+http://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
+
+
+::: other unhelpful refrences:
+http://stackoverflow.com/questions/5738204/cant-understand-how-gitignore-ignores-the-folders?rq=1
+http://git.661346.n2.nabble.com/negated-list-in-gitignore-no-fun-td1675067.html
+http://stackoverflow.com/questions/8527597/gitignore-file-syntax
+http://git-scm.com/docs/gitignore

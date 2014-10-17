@@ -1,0 +1,17 @@
+cloning 
+
+$ git clone git@github.com:ApolloTang/L01.git
+    fatal: destination path 'L01' already exists and is not an empty directory.
+
+
+$ git clone git@github.com:ApolloTang/L01.git lynda_version
+    Cloning into 'lynda_version'...
+    Enter passphrase for key '/c/Users/apollo/.ssh/id_rsa':
+    remote: Counting objects: 3, done.
+    remote: Total 3 (delta 0), reused 3 (delta 0)
+    Receiving objects: 100% (3/3), done.
+
+$ ls
+    L01  L1  lynda_version
+    
+[Note!]: this will only pull down the remote default branch    

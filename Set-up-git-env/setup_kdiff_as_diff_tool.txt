@@ -1,0 +1,35 @@
+ 
+
+C:\Users\Apollo\.gitconfig
+
+        ......
+        
+        [diff]
+            external = extDiff  
+         ......   
+
+
+C:\Program Files (x86)\Git\local\bin\kdiff3
+
+    #!/bin/sh
+    "C:/Program Files (x86)/KDiff3/kdiff3.exe" "$@"
+         
+
+C:\Program Files (x86)\Git\local\bin\extDif
+
+        #!/bin/sh
+        #[ $# -eq 7 ] && /usr/local/bin/extMerge "$2" "$5"
+        [ $# -eq 7 ] && C:/Program\ Files\ \(x86\)/KDiff3/kdiff3.exe "$1" "$2" -o "$1"
+        [ $# -eq 7 ] && kdiff3 "$1" "$2" -o "$1"
+    
+ Reference: 
+    http://kdiff3.sourceforge.net/doc/documentation.html#commandline
+    http://stackoverflow.com/questions/12589527/using-kdiff3-to-edit-diffs-with-git
+    
+
+    
+
+   
+    
+        
+    
