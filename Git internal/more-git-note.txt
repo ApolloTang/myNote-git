@@ -1,0 +1,23 @@
+
+* Git will replace LF with CRLF, but the file will have its original line endings in working directory
+
+* Different between .git/info/exclude and .gitignore 
+	.gitignore  		// this file will be check in
+	.git/info/exclude  	// will not be check in
+	
+* $ git hash-object {file-name}	
+		// will give you the name of the file in object store
+		
+		note: 
+			{file-name} > {obj-store-filename}  use git hash-object {file-name}
+
+
+* $ git cat-file -p {object-store-filename}
+		// see the content of a object store
+		
+* $ git rev-parse {prefix-for-object-store-filename}
+		// give you the full 40 charecters of the object-store-filename
+		
+* $ git ls-files -s
+		// show staged contents object name
+		
