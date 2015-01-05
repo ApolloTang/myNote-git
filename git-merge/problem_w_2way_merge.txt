@@ -1,0 +1,42 @@
+
+When performing two way merge, the tool does not know whether
+I added a line or you remove a line. To illustrate this:
+
+
+    myfile.txt
+
+        same 1
+            different stuff
+        same 2
+
+
+    yourfile.txt
+
+        same 1
+        same 2
+
+
+    two possible hitories
+
+        history 1
+
+            the file was:
+
+                same 1
+                same 2
+
+            then I added a line in between
+
+
+        history 2
+
+            the file was:
+
+                same 1
+                    different stuff
+                same 2
+
+            then you delete a line in between
+
+
+
