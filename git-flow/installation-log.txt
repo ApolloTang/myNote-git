@@ -1,0 +1,294 @@
+~/Aa/2-git-repo/mirror-to-github/n-git
+$ sudo port install git +bash_completion
+Password:
+Warning: port definitions are more than two weeks old, consider updating them by running 'port selfupdate'.
+--->  Computing dependencies for git
+--->  Dependencies to be installed: bash-completion bash gettext expat ncurses curl curl-ca-bundle perl5 perl5.16 gdbm libidn openssl zlib p5.16-authen-sasl p5.16-digest-hmac p5.16-digest-sha1 p5.16-gssapi p5.16-error p5.16-net-smtp-ssl p5.16-io-socket-ssl p5.16-net-libidn p5.16-net-ssleay p5.16-term-readkey pcre bzip2 libedit python27 db48 db_select python_select sqlite3 rsync popt
+--->  Fetching archive for expat
+--->  Attempting to fetch expat-2.1.0_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/expat
+--->  Attempting to fetch expat-2.1.0_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/expat
+--->  Installing expat @2.1.0_0
+--->  Activating expat @2.1.0_0
+--->  Cleaning expat
+--->  Fetching archive for ncurses
+--->  Attempting to fetch ncurses-5.9_2.darwin_14.x86_64.tbz2 from http://packages.macports.org/ncurses
+--->  Attempting to fetch ncurses-5.9_2.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/ncurses
+--->  Installing ncurses @5.9_2
+--->  Activating ncurses @5.9_2
+--->  Cleaning ncurses
+--->  Fetching archive for gettext
+--->  Attempting to fetch gettext-0.19.3_1.darwin_14.x86_64.tbz2 from http://packages.macports.org/gettext
+--->  Attempting to fetch gettext-0.19.3_1.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/gettext
+--->  Installing gettext @0.19.3_1
+--->  Activating gettext @0.19.3_1
+--->  Cleaning gettext
+--->  Fetching archive for bash
+--->  Attempting to fetch bash-4.3.30_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/bash
+--->  Attempting to fetch bash-4.3.30_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/bash
+--->  Installing bash @4.3.30_0
+--->  Activating bash @4.3.30_0
+--->  Cleaning bash
+--->  Fetching archive for bash-completion
+--->  Attempting to fetch bash-completion-2.1_8.darwin_14.noarch.tbz2 from http://packages.macports.org/bash-completion
+--->  Attempting to fetch bash-completion-2.1_8.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/bash-completion
+--->  Installing bash-completion @2.1_8
+--->  Activating bash-completion @2.1_8
+
+To use bash_completion, add the following lines at the end of your
+.bash_profile:
+  if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+      . /opt/local/etc/profile.d/bash_completion.sh
+  fi
+The port bash-completion >=2.0 requires bash >=4.1; please make sure
+you are using /opt/local/bin/bash by changing the preferences of your
+terminal accordingly. If your version of bash is too old, the script
+above will not modify your shell environment and no extended completion
+will be available.
+
+
+--->  Cleaning bash-completion
+--->  Fetching archive for gdbm
+--->  Attempting to fetch gdbm-1.11_1.darwin_14.x86_64.tbz2 from http://packages.macports.org/gdbm
+--->  Attempting to fetch gdbm-1.11_1.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/gdbm
+--->  Installing gdbm @1.11_1
+--->  Activating gdbm @1.11_1
+--->  Cleaning gdbm
+--->  Fetching archive for perl5.16
+--->  Attempting to fetch perl5.16-5.16.3_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/perl5.16
+--->  Attempting to fetch perl5.16-5.16.3_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/perl5.16
+--->  Installing perl5.16 @5.16.3_0
+--->  Activating perl5.16 @5.16.3_0
+--->  Cleaning perl5.16
+--->  Fetching archive for perl5
+--->  Attempting to fetch perl5-5.12.4_0+perl5_16.darwin_14.noarch.tbz2 from http://packages.macports.org/perl5
+--->  Attempting to fetch perl5-5.12.4_0+perl5_16.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/perl5
+--->  Installing perl5 @5.12.4_0+perl5_16
+--->  Activating perl5 @5.12.4_0+perl5_16
+--->  Cleaning perl5
+--->  Fetching archive for curl-ca-bundle
+--->  Attempting to fetch curl-ca-bundle-7.38.0_0.darwin_14.noarch.tbz2 from http://packages.macports.org/curl-ca-bundle
+--->  Attempting to fetch curl-ca-bundle-7.38.0_0.darwin_14.noarch.tbz2 from http://lil.fr.packages.macports.org/curl-ca-bundle
+--->  Attempting to fetch curl-ca-bundle-7.38.0_0.darwin_14.noarch.tbz2 from http://jog.id.packages.macports.org/macports/packages/curl-ca-bundle
+--->  Fetching distfiles for curl-ca-bundle
+--->  Attempting to fetch curl-7.38.0.tar.bz2 from http://ykf.ca.distfiles.macports.org/MacPorts/mpdistfiles/curl
+--->  Attempting to fetch curl-7.38.0.tar.bz2 from http://sea.us.distfiles.macports.org/macports/distfiles/curl
+--->  Attempting to fetch certdata-1.87.txt from http://ykf.ca.distfiles.macports.org/MacPorts/mpdistfiles/curl
+--->  Attempting to fetch certdata-1.87.txt from http://sea.us.distfiles.macports.org/macports/distfiles/curl
+--->  Verifying checksums for curl-ca-bundle
+--->  Extracting curl-ca-bundle
+--->  Applying patches to curl-ca-bundle
+--->  Configuring curl-ca-bundle
+--->  Building curl-ca-bundle
+--->  Staging curl-ca-bundle into destroot
+--->  Installing curl-ca-bundle @7.38.0_0
+--->  Activating curl-ca-bundle @7.38.0_0
+--->  Cleaning curl-ca-bundle
+--->  Fetching archive for libidn
+--->  Attempting to fetch libidn-1.29_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/libidn
+--->  Attempting to fetch libidn-1.29_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/libidn
+--->  Installing libidn @1.29_0
+--->  Activating libidn @1.29_0
+--->  Cleaning libidn
+--->  Fetching archive for zlib
+--->  Attempting to fetch zlib-1.2.8_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/zlib
+--->  Attempting to fetch zlib-1.2.8_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/zlib
+--->  Installing zlib @1.2.8_0
+--->  Activating zlib @1.2.8_0
+--->  Cleaning zlib
+--->  Fetching archive for openssl
+--->  Attempting to fetch openssl-1.0.1j_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/openssl
+--->  Attempting to fetch openssl-1.0.1j_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/openssl
+--->  Installing openssl @1.0.1j_0
+--->  Activating openssl @1.0.1j_0
+--->  Cleaning openssl
+--->  Fetching archive for curl
+--->  Attempting to fetch curl-7.38.0_0+ssl.darwin_14.x86_64.tbz2 from http://packages.macports.org/curl
+--->  Attempting to fetch curl-7.38.0_0+ssl.darwin_14.x86_64.tbz2 from http://lil.fr.packages.macports.org/curl
+--->  Attempting to fetch curl-7.38.0_0+ssl.darwin_14.x86_64.tbz2 from http://jog.id.packages.macports.org/macports/packages/curl
+--->  Fetching distfiles for curl
+--->  Verifying checksums for curl
+--->  Extracting curl
+--->  Applying patches to curl
+--->  Configuring curl
+--->  Building curl
+--->  Staging curl into destroot
+--->  Installing curl @7.38.0_0+ssl
+--->  Activating curl @7.38.0_0+ssl
+--->  Cleaning curl
+--->  Fetching archive for p5.16-digest-sha1
+--->  Attempting to fetch p5.16-digest-sha1-2.130.0_4.darwin_14.x86_64.tbz2 from http://packages.macports.org/p5.16-digest-sha1
+--->  Attempting to fetch p5.16-digest-sha1-2.130.0_4.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/p5.16-digest-sha1
+--->  Installing p5.16-digest-sha1 @2.130.0_4
+--->  Activating p5.16-digest-sha1 @2.130.0_4
+--->  Cleaning p5.16-digest-sha1
+--->  Fetching archive for p5.16-digest-hmac
+--->  Attempting to fetch p5.16-digest-hmac-1.30.0_0.darwin_14.noarch.tbz2 from http://packages.macports.org/p5.16-digest-hmac
+--->  Attempting to fetch p5.16-digest-hmac-1.30.0_0.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/p5.16-digest-hmac
+--->  Installing p5.16-digest-hmac @1.30.0_0
+--->  Activating p5.16-digest-hmac @1.30.0_0
+--->  Cleaning p5.16-digest-hmac
+--->  Fetching archive for p5.16-gssapi
+--->  Attempting to fetch p5.16-gssapi-0.280.0_2.darwin_14.x86_64.tbz2 from http://packages.macports.org/p5.16-gssapi
+--->  Attempting to fetch p5.16-gssapi-0.280.0_2.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/p5.16-gssapi
+--->  Installing p5.16-gssapi @0.280.0_2
+--->  Activating p5.16-gssapi @0.280.0_2
+--->  Cleaning p5.16-gssapi
+--->  Fetching archive for p5.16-authen-sasl
+--->  Attempting to fetch p5.16-authen-sasl-2.160.0_0.darwin_14.noarch.tbz2 from http://packages.macports.org/p5.16-authen-sasl
+--->  Attempting to fetch p5.16-authen-sasl-2.160.0_0.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/p5.16-authen-sasl
+--->  Installing p5.16-authen-sasl @2.160.0_0
+--->  Activating p5.16-authen-sasl @2.160.0_0
+--->  Cleaning p5.16-authen-sasl
+--->  Fetching archive for p5.16-error
+--->  Attempting to fetch p5.16-error-0.170.220_1.darwin_14.noarch.tbz2 from http://packages.macports.org/p5.16-error
+--->  Attempting to fetch p5.16-error-0.170.220_1.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/p5.16-error
+--->  Installing p5.16-error @0.170.220_1
+--->  Activating p5.16-error @0.170.220_1
+--->  Cleaning p5.16-error
+--->  Fetching archive for p5.16-net-libidn
+--->  Attempting to fetch p5.16-net-libidn-0.120.0_4.darwin_14.x86_64.tbz2 from http://packages.macports.org/p5.16-net-libidn
+--->  Attempting to fetch p5.16-net-libidn-0.120.0_4.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/p5.16-net-libidn
+--->  Installing p5.16-net-libidn @0.120.0_4
+--->  Activating p5.16-net-libidn @0.120.0_4
+--->  Cleaning p5.16-net-libidn
+--->  Fetching archive for p5.16-net-ssleay
+--->  Attempting to fetch p5.16-net-ssleay-1.660.0_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/p5.16-net-ssleay
+--->  Attempting to fetch p5.16-net-ssleay-1.660.0_0.darwin_14.x86_64.tbz2 from http://lil.fr.packages.macports.org/p5.16-net-ssleay
+--->  Attempting to fetch p5.16-net-ssleay-1.660.0_0.darwin_14.x86_64.tbz2 from http://jog.id.packages.macports.org/macports/packages/p5.16-net-ssleay
+--->  Fetching distfiles for p5.16-net-ssleay
+--->  Attempting to fetch Net-SSLeay-1.66.tar.gz from http://ykf.ca.distfiles.macports.org/MacPorts/mpdistfiles/perl5
+--->  Attempting to fetch Net-SSLeay-1.66.tar.gz from http://sea.us.distfiles.macports.org/macports/distfiles/perl5
+--->  Verifying checksums for p5.16-net-ssleay
+--->  Extracting p5.16-net-ssleay
+--->  Applying patches to p5.16-net-ssleay
+--->  Configuring p5.16-net-ssleay
+--->  Building p5.16-net-ssleay
+--->  Staging p5.16-net-ssleay into destroot
+--->  Installing p5.16-net-ssleay @1.660.0_0
+--->  Activating p5.16-net-ssleay @1.660.0_0
+--->  Cleaning p5.16-net-ssleay
+--->  Fetching archive for p5.16-io-socket-ssl
+--->  Attempting to fetch p5.16-io-socket-ssl-2.2.0_0.darwin_14.noarch.tbz2 from http://packages.macports.org/p5.16-io-socket-ssl
+--->  Attempting to fetch p5.16-io-socket-ssl-2.2.0_0.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/p5.16-io-socket-ssl
+--->  Installing p5.16-io-socket-ssl @2.2.0_0
+--->  Activating p5.16-io-socket-ssl @2.2.0_0
+--->  Cleaning p5.16-io-socket-ssl
+--->  Fetching archive for p5.16-net-smtp-ssl
+--->  Attempting to fetch p5.16-net-smtp-ssl-1.10.0_0.darwin_14.noarch.tbz2 from http://packages.macports.org/p5.16-net-smtp-ssl
+--->  Attempting to fetch p5.16-net-smtp-ssl-1.10.0_0.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/p5.16-net-smtp-ssl
+--->  Installing p5.16-net-smtp-ssl @1.10.0_0
+--->  Activating p5.16-net-smtp-ssl @1.10.0_0
+--->  Cleaning p5.16-net-smtp-ssl
+--->  Fetching archive for p5.16-term-readkey
+--->  Attempting to fetch p5.16-term-readkey-2.320.0_1.darwin_14.x86_64.tbz2 from http://packages.macports.org/p5.16-term-readkey
+--->  Attempting to fetch p5.16-term-readkey-2.320.0_1.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/p5.16-term-readkey
+--->  Installing p5.16-term-readkey @2.320.0_1
+--->  Activating p5.16-term-readkey @2.320.0_1
+--->  Cleaning p5.16-term-readkey
+--->  Fetching archive for bzip2
+--->  Attempting to fetch bzip2-1.0.6_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/bzip2
+--->  Attempting to fetch bzip2-1.0.6_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/bzip2
+--->  Installing bzip2 @1.0.6_0
+--->  Activating bzip2 @1.0.6_0
+--->  Cleaning bzip2
+--->  Fetching archive for libedit
+--->  Attempting to fetch libedit-20140620-3.1_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/libedit
+--->  Attempting to fetch libedit-20140620-3.1_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/libedit
+--->  Installing libedit @20140620-3.1_0
+--->  Activating libedit @20140620-3.1_0
+--->  Cleaning libedit
+--->  Fetching archive for pcre
+--->  Attempting to fetch pcre-8.35_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/pcre
+--->  Attempting to fetch pcre-8.35_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/pcre
+--->  Installing pcre @8.35_0
+--->  Activating pcre @8.35_0
+--->  Cleaning pcre
+--->  Fetching archive for db_select
+--->  Attempting to fetch db_select-0.1_2.darwin_14.noarch.tbz2 from http://packages.macports.org/db_select
+--->  Attempting to fetch db_select-0.1_2.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/db_select
+--->  Installing db_select @0.1_2
+--->  Activating db_select @0.1_2
+--->  Cleaning db_select
+--->  Fetching archive for db48
+--->  Attempting to fetch db48-4.8.30_4.darwin_14.x86_64.tbz2 from http://packages.macports.org/db48
+--->  Attempting to fetch db48-4.8.30_4.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/db48
+--->  Installing db48 @4.8.30_4
+--->  Activating db48 @4.8.30_4
+--->  Cleaning db48
+--->  Fetching archive for python_select
+--->  Attempting to fetch python_select-0.3_4.darwin_14.noarch.tbz2 from http://packages.macports.org/python_select
+--->  Attempting to fetch python_select-0.3_4.darwin_14.noarch.tbz2.rmd160 from http://packages.macports.org/python_select
+--->  Installing python_select @0.3_4
+--->  Activating python_select @0.3_4
+--->  Cleaning python_select
+--->  Fetching archive for sqlite3
+--->  Attempting to fetch sqlite3-3.8.7_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/sqlite3
+--->  Attempting to fetch sqlite3-3.8.7_0.darwin_14.x86_64.tbz2 from http://lil.fr.packages.macports.org/sqlite3
+--->  Attempting to fetch sqlite3-3.8.7_0.darwin_14.x86_64.tbz2 from http://jog.id.packages.macports.org/macports/packages/sqlite3
+--->  Fetching distfiles for sqlite3
+--->  Attempting to fetch sqlite-autoconf-3080700.tar.gz from http://ykf.ca.distfiles.macports.org/MacPorts/mpdistfiles/sqlite3
+--->  Attempting to fetch sqlite-autoconf-3080700.tar.gz from http://sea.us.distfiles.macports.org/macports/distfiles/sqlite3
+--->  Verifying checksums for sqlite3
+--->  Extracting sqlite3
+--->  Applying patches to sqlite3
+--->  Configuring sqlite3
+--->  Building sqlite3
+--->  Staging sqlite3 into destroot
+--->  Installing sqlite3 @3.8.7_0
+--->  Activating sqlite3 @3.8.7_0
+--->  Cleaning sqlite3
+--->  Fetching archive for python27
+--->  Attempting to fetch python27-2.7.8_3.darwin_14.x86_64.tbz2 from http://packages.macports.org/python27
+--->  Attempting to fetch python27-2.7.8_3.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/python27
+--->  Installing python27 @2.7.8_3
+--->  Activating python27 @2.7.8_3
+
+To make python 2.7 the default (i.e. the version you get when you run 'python'),
+please run:
+
+sudo port select --set python python27
+
+--->  Cleaning python27
+--->  Fetching archive for popt
+--->  Attempting to fetch popt-1.16_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/popt
+--->  Attempting to fetch popt-1.16_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/popt
+--->  Installing popt @1.16_0
+--->  Activating popt @1.16_0
+--->  Cleaning popt
+--->  Fetching archive for rsync
+--->  Attempting to fetch rsync-3.1.1_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/rsync
+--->  Attempting to fetch rsync-3.1.1_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/rsync
+--->  Installing rsync @3.1.1_0
+--->  Activating rsync @3.1.1_0
+
+To use the rsyncd server you must copy /opt/local/etc/rsyncd.conf.example to
+rsyncd.conf and add your modules there. See 'man rsyncd.conf' for more
+information.
+
+--->  Cleaning rsync
+--->  Fetching archive for git
+--->  Attempting to fetch git-2.1.2_0+bash_completion+credential_osxkeychain+doc+pcre+perl5_16+python27.darwin_14.x86_64.tbz2 from http://packages.macports.org/git
+--->  Attempting to fetch git-2.1.2_0+bash_completion+credential_osxkeychain+doc+pcre+perl5_16+python27.darwin_14.x86_64.tbz2 from http://lil.fr.packages.macports.org/git
+--->  Attempting to fetch git-2.1.2_0+bash_completion+credential_osxkeychain+doc+pcre+perl5_16+python27.darwin_14.x86_64.tbz2 from http://jog.id.packages.macports.org/macports/packages/git
+--->  Fetching distfiles for git
+--->  Attempting to fetch git-2.1.2.tar.gz from http://ykf.ca.distfiles.macports.org/MacPorts/mpdistfiles/git
+--->  Attempting to fetch git-2.1.2.tar.gz from http://sea.us.distfiles.macports.org/macports/distfiles/git
+--->  Attempting to fetch git-manpages-2.1.2.tar.gz from http://ykf.ca.distfiles.macports.org/MacPorts/mpdistfiles/git
+--->  Attempting to fetch git-manpages-2.1.2.tar.gz from http://sea.us.distfiles.macports.org/macports/distfiles/git
+--->  Attempting to fetch git-htmldocs-2.1.2.tar.gz from http://ykf.ca.distfiles.macports.org/MacPorts/mpdistfiles/git
+--->  Attempting to fetch git-htmldocs-2.1.2.tar.gz from http://sea.us.distfiles.macports.org/macports/distfiles/git
+--->  Verifying checksums for git
+--->  Extracting git
+--->  Applying patches to git
+--->  Configuring git
+--->  Building git
+--->  Staging git into destroot
+--->  Installing git @2.1.2_0+bash_completion+credential_osxkeychain+doc+pcre+perl5_16+python27
+--->  Activating git @2.1.2_0+bash_completion+credential_osxkeychain+doc+pcre+perl5_16+python27
+--->  Cleaning git
+--->  Updating database of binaries
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+~/Aa/2-git-repo/mirror-to-github/n-git
+$ which git
+/opt/local/bin/git

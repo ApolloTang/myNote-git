@@ -1,0 +1,12 @@
+Ref: http://code-worrier.com/blog/autocomplete-git/
+
+
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/opt/script/git-completion.bash
+
+
+add the following lines to your .bash_profile
+
+if [ -f ~/opt/script/git-completion.bash ]; then
+  . ~/opt/script/git-completion.bash
+fi
+

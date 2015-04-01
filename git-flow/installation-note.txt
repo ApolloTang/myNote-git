@@ -1,0 +1,55 @@
+:: on lights
+
+    follow instruction from:
+    https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+
+    $ sudo port install git +bash_completion
+
+    cli installation message:
+    -------------------------
+
+    Warning: port definitions are more than two weeks old, consider
+             updating them by running 'port selfupdate'.
+
+    --->  Computing dependencies for git
+    --->  Dependencies to be installed: bash-completion bash
+        gettext expat ncurses curl curl-ca-bundle perl5 perl5.16 gdbm
+        libidn openssl zlib p5.16-authen-sasl p5.16-digest-hmac p5.16
+        digest-sha1 p5.16-gssapi p5.16-error p5.16-net-smtp-ssl p5.16
+        io-socket-ssl p5.16-net-libidn p5.16-net-ssleay p5.16-term-readkey
+        pcre bzip2 libedit python27 db48 db_select python_select sqlite3
+        rsync popt
+
+
+    To use bash_completion, add the following lines at the end of your
+    .bash_profile:
+
+      if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+          . /opt/local/etc/profile.d/bash_completion.sh
+      fi
+
+    The port bash-completion >=2.0 requires bash >=4.1; please make sure
+    you are using /opt/local/bin/bash by changing the preferences of your
+    terminal accordingly. If your version of bash is too old, the script
+    above will not modify your shell environment and no extended completion
+    will be available.
+
+    ....
+
+    To make python 2.7 the default (i.e. the version you get when you run 'python'),
+    please run:
+
+    sudo port select --set python python27
+
+    ....
+
+    To use the rsyncd server you must copy /opt/local/etc/rsyncd.conf.example to
+    rsyncd.conf and add your modules there. See 'man rsyncd.conf' for more
+    information.
+
+   $ which git
+   /opt/local/bin/git
+
+
+
+
