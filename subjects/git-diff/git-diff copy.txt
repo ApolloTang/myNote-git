@@ -1,0 +1,10 @@
+
+
+Diff most recent change btw commit
+
+  git diff @~..@
+
+    Ref:
+    https://stackoverflow.com/questions/9903541/finding-diff-between-current-and-last-versions/9903611
+
+

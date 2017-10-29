@@ -1,0 +1,19 @@
+
+list stash with date (pretty):
+
+    git stash list --pretty=format:"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)"
+
+    Ref:
+      https://stackoverflow.com/a/38826108
+
+list stash with date (simple):
+
+    git stash list --date=local
+
+    Ref:
+      https://stackoverflow.com/questions/15551618/get-the-creation-date-of-a-stash
+
+
+
+
+
