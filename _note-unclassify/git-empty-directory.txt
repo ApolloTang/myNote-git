@@ -1,6 +1,10 @@
-Git doesn't ignore empty directories. It ignores all directories. In Git, directories exist only implicitly, through their contents. Emtpy directories have no contents, therefore they don't exist.
 
-Or to put it another way: Git is a content tracker. Empty directories are not content.
+Git ignore empty directories.
+In Git, directories exist only implicitly, through their contents.
+Emtpy directories have no contents, therefore they don't exist.
+
+Or to put it another way: Git is a content tracker. Empty directories
+are not content.
 
 http://stackoverflow.com/questions/1767165/git-and-empty-folders
 https://git.wiki.kernel.org/index.php/GitFaq#Can_I_add_empty_directories.3F
